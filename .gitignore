@@ -10,3 +10,9 @@ data.db-journal
 # Keep public directory for Vercel
 !public/.gitkeep
 
+.vercel
+
+# Vercel compiles api/ automatically, ignore compiled files
+api/**/*.js
+api/**/*.js.map
+.env*.local

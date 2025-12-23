@@ -1,6 +1,6 @@
 // Vercel serverless function for Telegram webhook
-// Import bot instance from compiled dist
-import { bot } from '../dist/index';
+// Import bot instance directly from bot-setup (compiled to dist/bot-setup.js)
+const { bot } = require('../dist/bot-setup');
 
 export default async function handler(req: any, res: any) {
   // Only allow POST requests
