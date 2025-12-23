@@ -8,7 +8,8 @@
     "build": "tsc",
     "start": "node dist/index.js",
     "db:push": "pnpm prisma db push",
-    "db:generate": "pnpm prisma generate"
+    "db:generate": "pnpm prisma generate",
+    "postinstall": "pnpm prisma generate"
   },
   "keywords": [
     "telegram",
