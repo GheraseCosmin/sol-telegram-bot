@@ -2,6 +2,17 @@
   "buildCommand": "pnpm build",
   "installCommand": "pnpm install",
   "framework": null,
-  "outputDirectory": "dist"
+  "outputDirectory": "dist",
+  "functions": {
+    "api/**/*.ts": {
+      "runtime": "nodejs20.x"
+    }
+  },
+  "rewrites": [
+    {
+      "source": "/webhook",
+      "destination": "/api/webhook"
+    }
+  ]
 }
 
