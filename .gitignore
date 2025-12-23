@@ -7,4 +7,6 @@ data.db
 data.db-journal
 *.db-shm
 *.db-wal
+# Keep public directory for Vercel
+!public/.gitkeep
 
