@@ -253,11 +253,21 @@ bot.catch((err, ctx) => {
 });
 
 // Start bot
-bot.launch().then(() => {
-  console.log('🤖 Bot is running...');
-});
+// Only launch if not in Vercel serverless environment
+if (process.env.VERCEL !== '1') {
+  bot.launch().then(() => {
+    console.log('🤖 Bot is running...');
+  });
 
-// Graceful shutdown
-process.once('SIGINT', () => bot.stop('SIGINT'));
-process.once('SIGTERM', () => bot.stop('SIGTERM'));
+  // Graceful shutdown
+  process.once('SIGINT', () => bot.stop('SIGINT'));
+  process.once('SIGTERM', () => bot.stop('SIGTERM'));
+} else {
+  // For Vercel serverless, export the bot instance
+  // The bot will be started via webhook
+  console.log('🤖 Bot initialized for Vercel serverless');
+}
+
+// Export for Vercel serverless
+export default bot;
 
